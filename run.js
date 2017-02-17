@@ -1,15 +1,21 @@
-var Hexo = require('hexo');
-var hexo = new Hexo(process.cwd(), {});
-hexo.init()
-  .then(function(){
-    return hexo.call('clean', {})
-  })
-  .then(function(){
-    return hexo.call('generate', {})
-  })
-  .then(function(){
-    return hexo.call('server', {})
-  })
-  .then(function(){
-    console.log('running')
-  });
+var spawn = require('child_process').spawn;
+
+free = spawn('hexo', ['server']);/* 其实就是等于执行hexo server -p 4000*/
+
+free.stdout.on('data', function (data) {
+
+    console.log('standard output:\n' + data);
+
+});
+
+free.stderr.on('data', function (data) {
+
+    console.log('standard error output:\n' + data);
+
+});
+
+free.on('exit', function (code, signal) {
+
+    console.log('child process eixt ,exit:' + code);
+
+});
