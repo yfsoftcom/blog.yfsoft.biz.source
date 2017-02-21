@@ -118,3 +118,9 @@ about: false
 visit_counter:
   site_uv: 站点总访客数：
   site_pv: 站点总访问量：
+
+growingio:
+  enable: true
+  siteid: b8b9386e0a91751e
+
+baidu_site_verification: PPBWEL9Blo
