@@ -16,7 +16,7 @@ date: 2017-02-20 18:05:00
 
 ### 1. 特性
 
-- 只适用了2个依赖 ['lodash', 'mysql']
+- 只使用了2个依赖 ['lodash', 'mysql']
 - 所有的代码加上格式化的空行不超过 600 行
 - 目前支持mysql
 - 通过delflag实现逻辑删除
@@ -30,18 +30,18 @@ date: 2017-02-20 18:05:00
 - 安装
 `npm install yf-fpm-dbm`
 
-- 配置
+- 配置数据库链接信息
 ```javascript
 var C = {
-    host:'192.168.1.1',
-    database:'test',
-    username:'root',
-    password:'root',
+  host:'192.168.1.1',
+  database:'test',
+  username:'root',
+  password:'root',
 };
 var M = require('yf-fpm-dbm')(C);
 ```
 - 运行
-```
+```javascript
 var arg = {
 　table: "test",
 　condition: "delflag=0",
@@ -56,7 +56,7 @@ M.first(arg, function(error, data){
 });
 ```
 - 说一下事务的用法
-```
+```javascript
 M.transation(function(err, atom){
   var arg = {
   　table: "test",
